@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kishlay Singh — Software Developer</title>
+<meta name="description" content="Kishlay Singh — B.Tech Computer Science Engineering student at JECRC University, aspiring Software Developer specializing in Web Development and AI. Available for Software Development Internships.">
+<meta name="theme-color" content="#050816">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300..800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================================= -->
+<!-- NOISE / GRID OVERLAY -->
+<!-- ============================================= -->
+<div class="noise-overlay" aria-hidden="true"></div>
+<div class="grid-overlay" aria-hidden="true"></div>
+
+<!-- ============================================= -->
+<!-- CUSTOM CURSOR -->
+<!-- ============================================= -->
+<div class="cursor-ring" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+
+<!-- ============================================= -->
+<!-- LOADER -->
+<!-- ============================================= -->
+<div class="loader" id="loader" role="status" aria-label="Loading site">
+  <div class="loader-inner">
+    <div class="loader-glyph">K</div>
+    <div class="loader-bar-track">
+      <div class="loader-bar-fill" id="loaderBarFill"></div>
+    </div>
+    <div class="loader-percent" id="loaderPercent">0%</div>
+  </div>
+</div>
+
+<!-- ============================================= -->
+<!-- SCROLL PROGRESS -->
+<!-- ============================================= -->
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<!-- ============================================= -->
+<!-- BACKGROUND FX -->
+<!-- ============================================= -->
+<div class="bg-fx" aria-hidden="true">
+  <div class="aurora aurora-1"></div>
+  <div class="aurora aurora-2"></div>
+  <div class="aurora aurora-3"></div>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="mouse-glow" id="mouseGlow"></div>
+  <canvas id="particleCanvas"></canvas>
+  <canvas id="starCanvas"></canvas>
+</div>
+
+<!-- ============================================= -->
+<!-- NAVBAR -->
+<!-- ============================================= -->
+<header class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <a href="#home" class="nav-logo" data-magnetic>
+      <span class="logo-mark">KS</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link active" data-section="home">Home</a>
+      <a href="#about" class="nav-link" data-section="about">About</a>
+      <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+      <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+      <a href="#certificates" class="nav-link" data-section="certificates">Certificates</a>
+      <a href="#education" class="nav-link" data-section="education">Education</a>
+      <a href="#experience" class="nav-link" data-section="experience">Experience</a>
+      <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+    </nav>
+
+    <a href="#contact" class="nav-cta" data-magnetic>Let's Talk</a>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" class="mobile-link">Home</a>
+    <a href="#about" class="mobile-link">About</a>
+    <a href="#skills" class="mobile-link">Skills</a>
+    <a href="#projects" class="mobile-link">Projects</a>
+    <a href="#certificates" class="mobile-link">Certificates</a>
+    <a href="#education" class="mobile-link">Education</a>
+    <a href="#experience" class="mobile-link">Experience</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============================================= -->
+  <!-- HERO -->
+  <!-- ============================================= -->
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div class="hero-content" data-parallax-layer data-depth="0.2">
+        <p class="hero-eyebrow reveal" data-reveal="fade-up">Hi, I'm</p>
+        <h1 class="hero-name reveal" data-reveal="fade-up" data-delay="100">
+          <span class="text-gradient">Kishlay Singh</span>
+        </h1>
+        <div class="hero-typing reveal" data-reveal="fade-up" data-delay="200">
+          <span id="typingText"></span><span class="typing-cursor">|</span>
+        </div>
+        <p class="hero-intro reveal" data-reveal="fade-up" data-delay="300">
+          B.Tech Computer Science Engineering student at JECRC University, building
+          impactful digital experiences at the intersection of web development and
+          artificial intelligence. Currently seeking Software Development Internship
+          opportunities.
+        </p>
+
+        <div class="hero-cta-row reveal" data-reveal="fade-up" data-delay="400">
+          <a href="assets/resume.pdf" download class="btn btn-primary" data-magnetic>
+            <span>Download Resume</span>
+          </a>
+          <a href="#contact" class="btn btn-outline" data-magnetic>
+            <span>Contact Me</span>
+          </a>
+        </div>
+
+        <div class="hero-socials reveal" data-reveal="fade-up" data-delay="500">
+          <a href="https://github.com/KishlaySingh1" target="_blank" rel="noopener" aria-label="GitHub" class="social-icon" data-magnetic>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.78 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.09 0 4.42-2.69 5.4-5.25 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .31.21.67.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/kishlay" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon" data-magnetic>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/kxzlay_58" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon" data-magnetic>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.39A5.86 5.86 0 0 0 .62 4.14c-.3.76-.5 1.64-.56 2.91C0 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.39 2.13.67.67 1.34 1.08 2.13 1.39.76.3 1.64.5 2.91.56C8.33 24 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.86 5.86 0 0 0 2.13-1.39 5.86 5.86 0 0 0 1.39-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.86 5.86 0 0 0-1.39-2.13A5.86 5.86 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84Zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm7.85-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0Z"/></svg>
+          </a>
+          <a href="mailto:kishlaysingh073@gmail.com" aria-label="Email" class="social-icon" data-magnetic>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 5.5A2.5 2.5 0 0 1 4.5 3h15A2.5 2.5 0 0 1 22 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5v-13Zm2.2.3 7.3 5.98a.8.8 0 0 0 1 0l7.3-5.98A.5.5 0 0 0 19.5 5h-15a.5.5 0 0 0-.3.8Z"/></svg>
+          </a>
+          <a href="tel:+916205189816" aria-label="Phone" class="social-icon" data-magnetic>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.1 15.1 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.4 21 3 13.6 3 4.5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual" data-parallax-layer data-depth="0.4">
+        <div class="profile-orbit">
+          <div class="glow-ring ring-1"></div>
+          <div class="glow-ring ring-2"></div>
+          <div class="floating-shape shape-1"></div>
+          <div class="floating-shape shape-2"></div>
+          <div class="floating-shape shape-3"></div>
+          <div class="profile-frame" id="tiltProfile">
+            <div class="profile-placeholder">
+              <span>KS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#about" class="scroll-cue" aria-label="Scroll down">
+      <span class="scroll-cue-dot"></span>
+    </a>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- ABOUT -->
+  <!-- ============================================= -->
+  <section class="section" id="about">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal" data-reveal="fade-up">About Me</p>
+      <h2 class="section-title reveal" data-reveal="fade-up">Turning ideas into <span class="text-gradient">interfaces</span></h2>
+
+      <div class="about-grid">
+        <div class="glass-card about-card reveal" data-reveal="fade-right" data-tilt>
+          <p class="about-text">
+            I'm a Computer Science Engineering student at JECRC University with a deep
+            curiosity for how software shapes everyday experiences. My focus lives at the
+            crossroads of <strong>Web Development</strong> and <strong>Artificial Intelligence</strong> —
+            I enjoy building things that are fast, thoughtful, and a little bit delightful.
+          </p>
+          <p class="about-text">
+            Outside of code, you'll find me in the gym working on discipline as much as
+            strength, reading tech blogs to stay sharp, and experimenting with new
+            frameworks and tools just to see how they tick. I'm currently on the lookout
+            for a <strong>Software Development Internship</strong> where I can learn fast
+            and contribute meaningfully.
+          </p>
+
+          <div class="about-timeline">
+            <div class="timeline-row">
+              <span class="timeline-dot"></span>
+              <div>
+                <p class="timeline-title">Career Objective</p>
+                <p class="timeline-desc">Aspiring Software Developer passionate about Web Development, AI, and building impactful digital experiences.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-stats reveal" data-reveal="fade-left">
+          <div class="glass-card stat-card" data-tilt>
+            <span class="stat-number" data-count="12">0</span><span class="stat-plus">+</span>
+            <p class="stat-label">Projects Built</p>
+          </div>
+          <div class="glass-card stat-card" data-tilt>
+            <span class="stat-number" data-count="6">0</span><span class="stat-plus">+</span>
+            <p class="stat-label">Certificates</p>
+          </div>
+          <div class="glass-card stat-card" data-tilt>
+            <span class="stat-number" data-count="20">0</span><span class="stat-plus">+</span>
+            <p class="stat-label">GitHub Repositories</p>
+          </div>
+          <div class="glass-card stat-card" data-tilt>
+            <span class="stat-number" data-count="800">0</span><span class="stat-plus">+</span>
+            <p class="stat-label">Coding Hours</p>
+          </div>
+          <div class="glass-card stat-card" data-tilt>
+            <span class="stat-number" data-count="90">0</span><span class="stat-plus">%</span>
+            <p class="stat-label">Gym Consistency</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SKILLS -->
+  <!-- ============================================= -->
+  <section class="section" id="skills">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal" data-reveal="fade-up">What I Work With</p>
+      <h2 class="section-title reveal" data-reveal="fade-up">Skills &amp; <span class="text-gradient">Toolkit</span></h2>
+
+      <div class="skills-categories">
+
+        <div class="skills-category reveal" data-reveal="fade-up">
+          <h3 class="skills-category-title">Frontend</h3>
+          <div class="skills-grid">
+            <div class="glass-card skill-card" data-tilt>
+              <div class="skill-icon">◆</div>
+              <p class="skill-name">HTML5</p>
+              <div class="skill-bar"><div class="skill-bar-fill" data-progress="90"></div></div>
+            </div>
+            <div class="glass-card skill-card" data-tilt>
+              <div class="skill-icon">◆</div>
+              <p class="skill-name">CSS3</p>
+              <div class="skill-bar"><div class="skill-bar-fill" data-progress="85"></div></div>
+            </div>
+            <div class="glass-card skill-card" data-tilt>
+              <div class="skill-icon">◆</div>
+              <p class="skill-name">JavaScript</p>
+              <div class="skill-bar"><div class="skill-bar-fill" data-progress="80"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-category reveal" data-reveal="fade-up" data-delay="100">
+          <h3 class="skills-category-title">Programming</h3>
+          <div class="skills-grid">
+            <div class="glass-card skill-card" data-tilt>
+              <div class="skill-icon">◇</div>
+              <p class="skill-name">Python</p>
+              <div class="skill-bar"><div class="skill-bar-fill" data-progress="82"></div></div>
+            </div>
+            <div class="glass-card skill-card" data-tilt>
+              <div class="skill-icon">◇</div>
+              <p class="skill-name">C++</p>
+              <div class="skill-bar"><div class="skill-bar-fill" data-progress="75"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-category reveal" data-reveal="fade-up" data-delay="200">
+          <h3 class="skills-category-title">Tools</h3>
+          <div class="skills-grid">
+            <div class="glass-card skill-card" data-tilt>
+              <div class="skill-icon">◈</div>
+              <p class="skill-name">Git</p>
+              <div class="skill-bar"><div class="skill-bar-fill" data-progress="85"></div></div>
+            </div>
+            <div class="glass-card skill-card" data-tilt>
+              <div class="skill-icon">◈</div>
+              <p class="skill-name">GitHub</p>
+              <div class="skill-bar"><div class="skill-bar-fill" data-progress="88"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-category reveal" data-reveal="fade-up" data-delay="300">
+          <h3 class="skills-category-title">Soft Skills</h3>
+          <div class="skills-grid">
+            <div class="glass-card skill-card" data-tilt>
+              <div class="skill-icon">✦</div>
+              <p class="skill-name">Problem Solving</p>
+              <div class="skill-bar"><div class="skill-bar-fill" data-progress="88"></div></div>
+            </div>
+            <div class="glass-card skill-card" data-tilt>
+              <div class="skill-icon">✦</div>
+              <p class="skill-name">UI/UX Thinking</p>
+              <div class="skill-bar"><div class="skill-bar-fill" data-progress="78"></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- PROJECTS -->
+  <!-- ============================================= -->
+  <section class="section" id="projects">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal" data-reveal="fade-up">Selected Work</p>
+      <h2 class="section-title reveal" data-reveal="fade-up">Featured <span class="text-gradient">Projects</span></h2>
+
+      <div class="filter-row reveal" data-reveal="fade-up">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="html">HTML</button>
+        <button class="filter-btn" data-filter="javascript">JavaScript</button>
+        <button class="filter-btn" data-filter="python">Python</button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+
+        <article class="glass-card project-card" data-tags="html javascript" data-tilt>
+          <div class="project-image"><span>01</span></div>
+          <div class="project-body">
+            <h3 class="project-title">Personal Portfolio Website</h3>
+            <p class="project-desc">A responsive personal portfolio built to showcase projects, skills, and experience with smooth animations.</p>
+            <div class="project-stack">
+              <span class="stack-chip">HTML5</span>
+              <span class="stack-chip">CSS3</span>
+              <span class="stack-chip">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/KishlaySingh1" target="_blank" rel="noopener" class="btn-small">GitHub</a>
+              <a href="#" class="btn-small btn-small-outline">Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="glass-card project-card" data-tags="python" data-tilt>
+          <div class="project-image"><span>02</span></div>
+          <div class="project-body">
+            <h3 class="project-title">AI-Based Utility Tool</h3>
+            <p class="project-desc">A Python-based automation project exploring practical applications of artificial intelligence concepts.</p>
+            <div class="project-stack">
+              <span class="stack-chip">Python</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/KishlaySingh1" target="_blank" rel="noopener" class="btn-small">GitHub</a>
+              <a href="#" class="btn-small btn-small-outline">Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="glass-card project-card" data-tags="javascript" data-tilt>
+          <div class="project-image"><span>03</span></div>
+          <div class="project-body">
+            <h3 class="project-title">Interactive Web App</h3>
+            <p class="project-desc">A dynamic, interactive front-end application built with vanilla JavaScript, focused on smooth UX.</p>
+            <div class="project-stack">
+              <span class="stack-chip">JavaScript</span>
+              <span class="stack-chip">CSS3</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/KishlaySingh1" target="_blank" rel="noopener" class="btn-small">GitHub</a>
+              <a href="#" class="btn-small btn-small-outline">Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="glass-card project-card" data-tags="html" data-tilt>
+          <div class="project-image"><span>04</span></div>
+          <div class="project-body">
+            <h3 class="project-title">Landing Page Concept</h3>
+            <p class="project-desc">A pixel-perfect marketing landing page focused on clean structure and semantic markup.</p>
+            <div class="project-stack">
+              <span class="stack-chip">HTML5</span>
+              <span class="stack-chip">CSS3</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/KishlaySingh1" target="_blank" rel="noopener" class="btn-small">GitHub</a>
+              <a href="#" class="btn-small btn-small-outline">Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- CERTIFICATES -->
+  <!-- ============================================= -->
+  <section class="section" id="certificates">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal" data-reveal="fade-up">Recognition</p>
+      <h2 class="section-title reveal" data-reveal="fade-up">Certificates &amp; <span class="text-gradient">Achievements</span></h2>
+
+      <div class="certificates-grid">
+        <button class="glass-card certificate-card reveal" data-reveal="scale" data-cert-index="0">
+          <div class="certificate-thumb"><span>Certificate 01</span></div>
+          <p class="certificate-name">Web Development Fundamentals</p>
+        </button>
+        <button class="glass-card certificate-card reveal" data-reveal="scale" data-delay="100" data-cert-index="1">
+          <div class="certificate-thumb"><span>Certificate 02</span></div>
+          <p class="certificate-name">Python Programming</p>
+        </button>
+        <button class="glass-card certificate-card reveal" data-reveal="scale" data-delay="200" data-cert-index="2">
+          <div class="certificate-thumb"><span>Certificate 03</span></div>
+          <p class="certificate-name">Introduction to AI</p>
+        </button>
+        <button class="glass-card certificate-card reveal" data-reveal="scale" data-delay="300" data-cert-index="3">
+          <div class="certificate-thumb"><span>Certificate 04</span></div>
+          <p class="certificate-name">Git &amp; GitHub Essentials</p>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox for certificates -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <div class="lightbox-content" id="lightboxContent"></div>
+  </div>
+
+  <!-- ============================================= -->
+  <!-- EDUCATION -->
+  <!-- ============================================= -->
+  <section class="section" id="education">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal" data-reveal="fade-up">Academic Path</p>
+      <h2 class="section-title reveal" data-reveal="fade-up">My <span class="text-gradient">Education</span></h2>
+
+      <div class="v-timeline">
+        <div class="v-timeline-item reveal" data-reveal="fade-right">
+          <div class="v-timeline-dot"></div>
+          <div class="glass-card v-timeline-card" data-tilt>
+            <p class="v-timeline-year">Current</p>
+            <h3 class="v-timeline-title">B.Tech — Computer Science Engineering</h3>
+            <p class="v-timeline-org">JECRC University</p>
+            <p class="v-timeline-desc">Pursuing a Bachelor's degree in Computer Science Engineering with a focus on software development, web technologies, and artificial intelligence. CGPA: <em>to be updated</em>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- EXPERIENCE -->
+  <!-- ============================================= -->
+  <section class="section" id="experience">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal" data-reveal="fade-up">Journey So Far</p>
+      <h2 class="section-title reveal" data-reveal="fade-up">Experience &amp; <span class="text-gradient">Goals</span></h2>
+
+      <div class="v-timeline">
+        <div class="v-timeline-item reveal" data-reveal="fade-right">
+          <div class="v-timeline-dot"></div>
+          <div class="glass-card v-timeline-card" data-tilt>
+            <p class="v-timeline-year">Seeking</p>
+            <h3 class="v-timeline-title">Software Development Internship</h3>
+            <p class="v-timeline-org">Open to Opportunities</p>
+            <p class="v-timeline-desc">Actively looking for an internship to apply my web development and problem-solving skills on real-world products, and to learn from experienced engineering teams.</p>
+          </div>
+        </div>
+        <div class="v-timeline-item reveal" data-reveal="fade-right" data-delay="150">
+          <div class="v-timeline-dot"></div>
+          <div class="glass-card v-timeline-card" data-tilt>
+            <p class="v-timeline-year">Future Goal</p>
+            <h3 class="v-timeline-title">Full-Stack &amp; AI Engineering</h3>
+            <p class="v-timeline-org">Long-Term Vision</p>
+            <p class="v-timeline-desc">Growing into a well-rounded software engineer who builds thoughtful products at the intersection of web platforms and applied AI.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- CONTACT -->
+  <!-- ============================================= -->
+  <section class="section" id="contact">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal" data-reveal="fade-up">Get In Touch</p>
+      <h2 class="section-title reveal" data-reveal="fade-up">Let's Build Something <span class="text-gradient">Great</span></h2>
+
+      <div class="contact-grid">
+
+        <form class="glass-card contact-form reveal" data-reveal="fade-right" id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name">
+            <span class="form-error" id="nameError"></span>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email">
+            <span class="form-error" id="emailError"></span>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="What's this about?">
+            <span class="form-error" id="subjectError"></span>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or opportunity..."></textarea>
+            <span class="form-error" id="messageError"></span>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit" data-magnetic>
+            <span>Send Message</span>
+          </button>
+          <div class="form-success" id="formSuccess">
+            <span class="success-check">✓</span> Message sent successfully! I'll get back to you soon.
+          </div>
+        </form>
+
+        <div class="contact-info reveal" data-reveal="fade-left">
+          <div class="glass-card contact-detail" data-tilt>
+            <p class="contact-label">Phone</p>
+            <a href="tel:+916205189816" class="contact-value">+91 6205189816</a>
+          </div>
+          <div class="glass-card contact-detail" data-tilt>
+            <p class="contact-label">Email</p>
+            <a href="mailto:kishlaysingh073@gmail.com" class="contact-value">kishlaysingh073@gmail.com</a>
+          </div>
+          <div class="glass-card contact-detail" data-tilt>
+            <p class="contact-label">GitHub</p>
+            <a href="https://github.com/KishlaySingh1" target="_blank" rel="noopener" class="contact-value">github.com/KishlaySingh1</a>
+          </div>
+          <div class="glass-card contact-detail" data-tilt>
+            <p class="contact-label">LinkedIn</p>
+            <a href="https://www.linkedin.com/in/kishlay" target="_blank" rel="noopener" class="contact-value">linkedin.com/in/kishlay</a>
+          </div>
+          <div class="glass-card contact-detail" data-tilt>
+            <p class="contact-label">Instagram</p>
+            <a href="https://www.instagram.com/kxzlay_58" target="_blank" rel="noopener" class="contact-value">@kxzlay_58</a>
+          </div>
+
+          <div class="glass-card map-placeholder">
+            <p>Jaipur, Rajasthan, India</p>
+            <span class="map-pulse"></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================= -->
+<!-- FOOTER -->
+<!-- ============================================= -->
+<footer class="footer">
+  <div class="footer-inner">
+    <a href="#home" class="footer-logo">KS</a>
+
+    <nav class="footer-nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="footer-socials">
+      <a href="https://github.com/KishlaySingh1" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
+      <a href="https://www.linkedin.com/in/kishlay" target="_blank" rel="noopener" aria-label="LinkedIn">IN</a>
+      <a href="https://www.instagram.com/kxzlay_58" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+    </div>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; <span id="year"></span> Kishlay Singh. All rights reserved.</p>
+    <p>Made with <span class="heart">❤</span> by Kishlay Singh</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
